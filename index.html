@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/matter.js"></script>
+  <script language="javascript" type="text/javascript" src="js/coin.js"></script>
+  <script language="javascript" type="text/javascript" src="js/monzo.js"></script>
+  <script language="javascript" type="text/javascript" src="js/monzo-piggy.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Mada" rel="stylesheet">  
+  <style> body {padding: 0; margin: 0;} </style>
+</head>
+
+<body>
+  <div class="header">
+      <div class="login-form">
+        <p>Account ID
+          <input type="text" name="uacc" id="uacc" value="">
+        Access Token
+          <input type="password" name="atoken" id="atoken" value="">
+          <button class="button" id="btnsubmit">Visualise</button>
+           **Gain access via <a href="https://developers.monzo.com" target ="_blank">Monzo Developers</a> to view your data.</p>          
+      </div>
+  </div>
+  <div class="animation" id="animation"></div>
+  <div class="footer"></div>
+</body>
+</html>

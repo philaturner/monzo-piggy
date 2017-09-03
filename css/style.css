@@ -1,0 +1,52 @@
+* {
+    font-family: 'Mada';
+    padding: 0px;
+    margin: 0px;
+  }
+
+.header{
+    padding-top: 10px;
+    height: auto;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.animation{
+    margin-left: 5px;
+}
+
+p {
+    padding-bottom: 5px;
+}
+
+input {
+    margin-right: 6px;
+}
+
+.button {
+    font-family: 'Mada';
+    background-color: #50B9DC;
+    border: none;
+    color: white;
+    padding: 3px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 2px;
+    width: 100px;
+    margin-right: 75px;
+  }
+  .button:hover {
+    background-color: #E64B5F;
+  }
+
+  button:disabled,
+  button[disabled],
+  button:disabled:hover{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+
+

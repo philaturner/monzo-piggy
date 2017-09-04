@@ -39,6 +39,7 @@ xhr.onload = function (e) {
         console.log('Error;', xhr.responseText);
         loadJSON('data/sample-data.json', gotData);
         animationType = 'sample';
+        console.log('No API details - Using Sample Data');
     }
     //start engine and draw
     drawing = true;

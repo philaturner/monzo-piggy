@@ -4,7 +4,8 @@ var World = Matter.World;
 var Bodies = Matter.Bodies;
 var Composite = Matter.Composite;
 
-var engine, data, intervalTimer, img, changeLabel, animationType;
+var engine, data, intervalTimer, img, changeLabel, animationType, dateLabel;
+var dateText = '01/01/2007';
 var totChange = 0;
 var coins = [];
 var changes = [];
@@ -28,6 +29,7 @@ var monzo_cat_colours = {
   'shopping': '#F09696',
   'transport': '#1C7890',
   'general': '#9a9a9a',
+  'expenses': '#E1B981',
   'gold': '#EBD278'
 };
 
@@ -159,6 +161,9 @@ function draw() {
       fill(255,0,0);
       text('Using Sample Data',width/2,75);
     }
+    //draw dateLabel
+    fill(190);
+    dateLabel = text(dateText,width/4*3,125);
   }
 }
 
@@ -171,12 +176,12 @@ function gotData(data){
 
 function createCoin(data){
   let totalTrans = data.transactions.length;
-  //if ran through all transactions end coin gen
-  if (counter == data.transactions.length){
-    clearInterval(intervalTimer);
-  }
   //create random x coordinate to drop ball from
-  let rX = floor(random(0,width/2-50));
+  let rX = floor(random(25,width/2-50));
+  //get date of transaction and draw
+  let rawDate = new Date(data.transactions[counter].created);
+  let transDate = rawDate.toDateString();
+  dateText = transDate;
   //calculate size of circla based on transaction value and amount of transactions
   let rSize = (data.transactions[counter].amount * -1) / (map(totalTrans,0,totalTrans,0,150));
   //if a valid transaction to get change from then do
@@ -188,6 +193,11 @@ function createCoin(data){
     createChange((data.transactions[counter].amount * -1));
   }
   counter++;
+  //if ran through all transactions end coin gen
+  if (counter == data.transactions.length){
+    clearInterval(intervalTimer);
+    console.log('Finished');
+  }
 }
 
 function createChange(amount){
@@ -200,7 +210,7 @@ function createChange(amount){
   //set x of coin drop
   let rX = floor(width/4*3+10);
   //create new coin and push to change array
-  changes.push(new Coin(rX,200,change*12,change*12,'gold'));
+  changes.push(new Coin(rX,275,change*12,change*12,'gold'));
 }
 
 function resetVariables(){

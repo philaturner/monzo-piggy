@@ -12,6 +12,7 @@ function Coin (x,y,w,h,cat){
   World.add(engine.world, this.body);
   //colour base on monzo category colours
   this.col = monzo_cat_colours[cat];
+  if (this.col == undefined) this.col = '#000'; //if col if undefined make black
 
   //render the object
   this.render = function(){
